@@ -1,0 +1,32 @@
+<head>
+<title>Tab Jumper</title>
+<script>
+var _nameContainer = {};
+
+chrome.extension.onRequest.addListener(
+  function(request, sender, sendResponse) {
+    if (request.toggle_tabs) {
+      var href = request.href;
+      var domain = href.split(".")[1];
+      chrome.tabs.getAllInWindow(null, function(tabs) {
+        var tab;
+        for (var i = 0; i < tabs.length; ++i) {
+          tab = tabs[i];  
+          alert(tab.tabJumperName);
+          if (_nameContainer[tab.id] == "foo") {
+            chrome.tabs.update(tab.id, {selected: true});
+          }
+        }
+      })
+    }
+
+    if (request.name_tab) {
+      alert("naming tab");
+      chrome.tabs.getSelected(null, function(tab){
+        _nameContainer[tab.id] = "foo";
+      });
+    }
+  }
+);
+</script>
+</head>
