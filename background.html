@@ -12,8 +12,7 @@ chrome.extension.onRequest.addListener(
         var tab;
         for (var i = 0; i < tabs.length; ++i) {
           tab = tabs[i];  
-          alert(tab.tabJumperName);
-          if (_nameContainer[tab.id] == "foo") {
+          if (_nameContainer[tab.id] == "hacker") {
             chrome.tabs.update(tab.id, {selected: true});
           }
         }
@@ -21,9 +20,8 @@ chrome.extension.onRequest.addListener(
     }
 
     if (request.name_tab) {
-      alert("naming tab");
       chrome.tabs.getSelected(null, function(tab){
-        _nameContainer[tab.id] = "foo";
+        _nameContainer[tab.id] = request.tabName;
       });
     }
   }

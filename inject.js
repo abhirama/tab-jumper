@@ -15,7 +15,8 @@ document.addEventListener("keydown", function(event){
     if (event.keyCode == 79) {
       // Send message to background page to toggle tab
       console.log("Sending tab naming request");
-      chrome.extension.sendRequest({name_tab: true}, function(response) {
+      var tabNameLoc = prompt("Please enter a name for your tab");
+      chrome.extension.sendRequest({name_tab: true, tabName: tabNameLoc}, function(response) {
         // Do stuff on successful response
       });
       /*
