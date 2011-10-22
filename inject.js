@@ -1,29 +1,14 @@
-// Copyright (c) 2011 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-//key code p -> 80
-//key code 0 -> 79
+var J_KEY_CODE = 74;
+var N_KEY_CODE = 78;
+
 document.addEventListener("keydown", function(event){
-    if (event.keyCode == 80) {
-      // Send message to background page to toggle tab
-      console.log("Sending tab changing request");
-      chrome.extension.sendRequest({toggle_tabs: true, href: document.location.href}, function(response) {
-        // Do stuff on successful response
-      });
+    if (event.altKey && event.keyCode == J_KEY_CODE) {
+      var tabNameLoc = prompt("Please enter the name of the tab you want to open");
+      chrome.extension.sendRequest({jump_tabs: true, tabName: tabNameLoc});
     }
 
-    if (event.keyCode == 79) {
-      // Send message to background page to toggle tab
-      console.log("Sending tab naming request");
+    if (event.altKey && event.keyCode == N_KEY_CODE) {
       var tabNameLoc = prompt("Please enter a name for your tab");
-      chrome.extension.sendRequest({name_tab: true, tabName: tabNameLoc}, function(response) {
-        // Do stuff on successful response
-      });
-      /*
-      chrome.tabs.getCurrent(function(tab){
-        tab.tabJumperName = "foo";  
-      });
-      */
+      chrome.extension.sendRequest({name_tab: true, tabName: tabNameLoc});
     }
-
 }, false);

@@ -5,14 +5,13 @@ var _nameContainer = {};
 
 chrome.extension.onRequest.addListener(
   function(request, sender, sendResponse) {
-    if (request.toggle_tabs) {
-      var href = request.href;
-      var domain = href.split(".")[1];
+    if (request.jump_tabs) {
+      var tabName = request.tabName;
       chrome.tabs.getAllInWindow(null, function(tabs) {
         var tab;
         for (var i = 0; i < tabs.length; ++i) {
           tab = tabs[i];  
-          if (_nameContainer[tab.id] == "hacker") {
+          if (_nameContainer[tab.id] == tabName) {
             chrome.tabs.update(tab.id, {selected: true});
           }
         }
