@@ -1,7 +1,11 @@
 {
   "name": "Tab Jumper",
   "version": "1.0",
-  "description": "An extension to name your tabs and jump to that tab",
+  "description": "Name your tabs and jump to them using the keyboard.",
+  "icons": { "16": "icon16.png",
+           "48": "icon48.png",
+          "128": "icon128.png" 
+          },
   "permissions": [
     "tabs"
   ],
