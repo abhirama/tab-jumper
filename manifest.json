@@ -1,6 +1,6 @@
 {
   "name": "Tab Jumper",
-  "version": "1.0",
+  "version": "0.1",
   "description": "Name your tabs and jump to them using the keyboard.",
   "icons": { "16": "icon16.png",
            "48": "icon48.png",
