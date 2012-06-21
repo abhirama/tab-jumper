@@ -1,1 +1,1 @@
-A chrome plugin that lets you name tabs and then switch to them based on their names.
+A chrome plugin that lets you name tabs and then switch to them based on their names. <a href='https://chrome.google.com/webstore/detail/mimlgafakphfhhggoebagplgdnnalneb' target='_new'>Install</a> it from chrome web store.
