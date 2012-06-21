@@ -1,2 +1,1 @@
-tab-jumper
-==========
+A chrome plugin that lets you name tabs and then switch to them based on their names.
